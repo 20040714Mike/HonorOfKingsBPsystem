@@ -16,32 +16,44 @@ function proceed(){
     document.getElementsByTagName("button")[0].innerHTML = "ban";
   }
   if(current_step == 1){
+    show_ban(choice);
     document.getElementById("ban1").src = "./asset/" + choice + ".png";
     document.getElementById("ban1").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban2").className = "ban_img breathing";
     document.getElementById("ban3").className = "ban_img breathing";
   }
   if(current_step == 2){
+    show_ban(choice);
     document.getElementById("ban2").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban2").src = "./asset/" + choice + ".png";
   }
   if(current_step == 3){
+    show_ban(choice);
     document.getElementById("ban3").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban3").src = "./asset/" + choice + ".png";
     document.getElementById("ban4").className = "ban_img breathing";
     document.getElementById("ban5").className = "ban_img breathing";
   }
   if(current_step == 4){
+    show_ban(choice);
     document.getElementById("ban4").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban4").src = "./asset/" + choice + ".png";
   }
   if(current_step == 5){
+    show_ban(choice);
     document.getElementById("ban5").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban5").src = "./asset/" + choice + ".png";
     document.getElementById("ban6").className = "ban_img breathing";
   }
   if(current_step == 6){
+    show_ban(choice);
     document.getElementById("ban6").className = "ban_img";
+    play_ban_effect();
     document.getElementById("ban6").src = "./asset/" + choice + ".png";
     document.getElementsByTagName("button")[0].innerHTML = "pick";
     document.getElementById("pick1").className = "pick_img breathing_blue";
@@ -114,11 +126,24 @@ function start(){
   bgm.volume = 0.2;
 }
 
+function show_ban(ban_tar){
+  document.getElementById("ban_poster_img").src = "./asset/" + ban_tar + ".png";
+  document.getElementById("ban_poster").style.opacity = 1;
+  setTimeout(function(){
+    document.getElementById("ban_poster").style.opacity = 0;
+  },2000)
+}
+
 function play_quote(target){
   target = "./asset/" + target + ".mp3";
   var quote = new Audio(target);
   quote.play();
   quote.volume = 1;
+}
+
+function play_ban_effect(){
+  var ban = new Audio("./asset/ban.mp3");
+  ban.play();
 }
 
 function pick(){
